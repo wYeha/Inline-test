@@ -1,0 +1,28 @@
+@use 'helpers' as *;
+
+:root {
+	--color-base: #444444;
+	--color-grey-alt: #89817F;
+	--color-grey: #B2B2B2;
+	--color-grey-product-card: #DEDEDE;
+	--color-grey-transparent: rgba(178, 178, 178, 0.5);
+	--color-accent: #429F3A;
+	--color-accent-hover: #A4E99E;
+	--color-light: #FFFFFF;
+	--color-like: #FF2424;
+
+	--font-family-base: 'Montserrat', sans-serif;
+
+	--container-width: #{rem(1066)}; //scss не умеет обрабатывать, так что такая конструкция # явно указывает на то, что здесь кастомная функция
+	--container-padding-x: #{rem(20)};
+
+	--section-padding-y: #{fluid(54, 48)};
+
+	--transition-duration: 0.2s;
+
+	--box-shadow: 0 #{rem(2)} #{rem(10)} #{rem(2)} rgba(0, 0, 0, 0.1);
+
+	--mobile-width: #{$mobile};
+
+	--border--radius-button: #{rem(5)};
+}

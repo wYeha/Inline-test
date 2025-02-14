@@ -1,0 +1,139 @@
+@use '../helpers' as *;
+
+.product-card {
+	width: rem(250);
+	border-radius: rem(10);
+	border: rem(1) solid var(--color-grey-product-card);
+	display: grid;
+	position: relative;
+	transition: var(--transition-duration);
+
+	@include hover {
+		box-shadow: var(--box-shadow);
+	}
+
+	&__link {
+		text-decoration: none;
+		color: inherit;
+		line-height: 1.2;
+
+		&::after {
+			position: absolute;
+			content: '';
+			inset: 0;
+		}
+	}
+
+
+	@include mobile {
+		width: rem(300);
+		padding: rem(20);
+		grid-template-columns: rem(100) auto;
+		grid-template-rows: 1fr 1fr auto;
+		gap: rem(12);
+		box-shadow: var(--box-shadow);
+		-moz-box-shadow: var(--box-shadow);
+		-webkit-box-shadow: var(--box-shadow);
+
+		border: none;
+	}
+
+	&__image {
+		border-top-right-radius: rem(9);
+		border-top-left-radius: rem(9);
+
+
+		@include mobile {
+			border-radius: rem(9);
+			grid-row: span 2;
+			grid-column: 1;
+		}
+	}
+
+	&__inner {
+		padding: fluid(14, 10) 0 fluid(20, 14) fluid(12, 8);
+		display: grid;
+		row-gap: fluid(30, 20);
+
+		@include mobile {
+			padding: 0;
+			display: contents;
+		}
+	}
+
+	&__title-container {
+		display: grid;
+		row-gap: fluid(7, 0);
+		max-height: rem(36);
+
+		@include mobile {
+			row-gap: 0;
+		}
+	}
+
+	&__title {
+		@include fluid-text(14, 12);
+		font-weight: 600;
+
+		@include mobile {
+			font-size: rem(15);
+		}
+	}
+
+	&__order-container {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		row-gap: rem(3);
+
+		@include mobile {
+			display: contents;
+		}
+	}
+
+	&__price-container {
+
+		@include mobile {
+			grid-row: 2;
+			grid-column: 2;
+			justify-self: end;
+			align-self: end;
+		}
+	}
+
+	&__price {
+		@include fluid-text(20, 14);
+		font-weight: 600;
+		line-height: 90%;
+
+		@include mobile {}
+	}
+
+	&__volume {
+		padding-left: rem(9);
+		position: relative;
+		font-size: rem(12);
+		color: var(--color-grey-alt);
+
+
+		&::before {
+			@include abs-y;
+			content: '/';
+			left: 0;
+		}
+	}
+
+	&__button {
+		position: relative;
+
+		@include mobile {
+			grid-column: span 2;
+			grid-row: 3;
+		}
+	}
+
+	&__rating {
+		display: flex;
+		column-gap: rem(2);
+	}
+}

@@ -1,0 +1,12 @@
+@use '../helpers' as *;
+
+.producer {
+	&--specification-table {
+		// стили те же, что и у всего в таблице спецификаций продукта
+	}
+
+	&--product-card {
+		color: var(--color-gray-alt);
+		@include fluid-text(12, 11);
+	}
+}

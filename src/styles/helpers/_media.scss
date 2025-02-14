@@ -1,0 +1,51 @@
+@use './functions' as *;
+
+// Дробные числа для избегания багов в некоторых устройствах в определении
+// точной ширины viewport
+$mobile: 767.98;
+$mobile-s: 480.98;
+$tablet: 1079.98;
+
+@mixin mobile-above {
+	@media (min-width: rem($mobile)) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: rem($mobile)) {
+		@content;
+	}
+}
+
+@mixin mobile-s-above {
+	@media (min-width: rem($mobile-s)) {
+		@content;
+	}
+}
+
+@mixin mobile-s {
+	@media (max-width: rem($mobile-s)) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: rem($tablet)) {
+		@content;
+	}
+}
+
+@mixin hover {
+	@media (hover: hover) {
+		&:hover {
+			@content;
+		}
+	}
+
+	@media (hover: none) {
+		&:active {
+			@content;
+		}
+	}
+}

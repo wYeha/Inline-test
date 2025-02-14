@@ -1,0 +1,37 @@
+@use '../helpers' as *;
+
+
+.slider {
+
+	@include mobile {
+		margin-inline: calc(-1 * var(--container-padding-x));
+	}
+
+
+	&__list {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		column-gap: rem(10);
+
+		@include mobile {
+			height: rem(220);
+			overflow-x: scroll;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			padding-inline: var(--container-padding-x);
+		}
+	}
+
+	&__item {
+		@include mobile {
+			flex-shrink: 0;
+			max-height: rem(192);
+		}
+	}
+}

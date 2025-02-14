@@ -1,0 +1,13 @@
+@use './styles/normilize';
+@use './styles/fonts';
+@use './styles/variables';
+@use './styles/utils';
+@use './styles/globals';
+
+@use './styles/blocks/tabs';
+@use './styles/blocks/specification';
+@use './styles/blocks/slider';
+@use './styles/blocks/product-card';
+@use './styles/blocks/producer';
+@use './styles/blocks/button';
+@use './styles/blocks/like';

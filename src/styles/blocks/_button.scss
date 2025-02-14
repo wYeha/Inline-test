@@ -1,0 +1,94 @@
+@use '../helpers' as *;
+
+.button {
+	display: flex;
+	align-items: center;
+	font-size: rem(15);
+	height: rem(40);
+
+	&--product-card {
+		padding-inline: rem(21);
+		background-color: var(--color-accent);
+		height: fluid(36, 28);
+		border-start-start-radius: rem(20);
+		border-end-start-radius: rem(20);
+		transition: var(--transition-duration);
+		color: white;
+		column-gap: rem(34);
+		font-weight: 600;
+
+		svg {
+			max-width: fluid(24, 16);
+		}
+
+		@include hover {
+			padding-inline: fluid(30, 20);
+		}
+
+		@include mobile {
+			justify-content: center;
+			border: rem(1) solid var(--color-grey-product-card);
+			border-radius: var(--border--radius-button);
+			padding-inline: 0;
+			height: rem(46);
+			background-color: transparent;
+			color: var(--color-accent);
+			position: relative;
+
+			@include hover {
+				background-color: var(--color-accent-hover);
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				background-image: url('./icons/plus.svg');
+				left: 64%;
+				@include square(rem(12));
+			}
+
+			svg {
+				max-width: rem(16);
+			}
+		}
+	}
+
+	&--reviews {
+		font-size: rem(15);
+		font-weight: 500;
+		padding-inline: rem(20);
+		border: 1px solid var(--color-accent);
+		border-radius: var(--border--radius-button);
+		background-color: var(--color-accent);
+		color: var(--color-light);
+
+		transition: var(--transition-duration);
+
+		@include hover {
+			color: var(--color-accent);
+			background-color: transparent;
+		}
+
+		@include mobile {
+			margin-inline: auto;
+		}
+	}
+
+	&--about {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		font-weight: 500;
+		border-radius: var(--border--radius-button);
+		border: 1px solid var(--color-base);
+		background-color: transparent;
+		color: var(--color-base);
+
+		transition: var(--transition-duration);
+
+		@include hover {
+			background-color: var(--color-grey-transparent);
+		}
+	}
+}

@@ -1,0 +1,43 @@
+@use 'helpers' as *;
+
+body {
+	@include fluid-text(14, 14);
+
+	font-family: var(--font-family-base);
+	color: var(--color-base);
+
+}
+
+.section {
+	&__title {
+		padding-bottom: fluid(30, 24);
+	}
+
+	&:not(:first-child) {
+		padding-top: fluid(54, 30);
+	}
+}
+
+button {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.h3 {
+	@include fluid-text(16, 15);
+	line-height: 133%;
+	font-weight: 600;
+
+	@include mobile-above {
+		text-transform: uppercase;
+		font-weight: 500;
+		line-height: 125%;
+	}
+}
+
+:focus-visible {
+	outline: rem(2) dashed black;
+	outline-offset: rem(3);
+	transition-duration: 0s !important;
+}

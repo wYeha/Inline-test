@@ -1,0 +1,135 @@
+@use '../helpers' as *;
+
+.tabs {
+
+	&__body {
+		padding-bottom: rem(16);
+	}
+
+	&__content {
+		&:not(.is-active) {
+			display: none;
+		}
+
+		&--about {
+			display: grid;
+			grid-template-columns: auto fluid(376, 300);
+			justify-content: space-between;
+			column-gap: fluid(180, 0);
+
+			@include mobile {
+				grid-template-columns: auto;
+			}
+		}
+	}
+
+	&__text {
+		font-size: rem(14);
+		padding-bottom: fluid(40, 30);
+
+		&--reviews {
+			max-width: rem(523);
+			padding-bottom: rem(32);
+		}
+
+		p:not(:last-child) {
+			padding-bottom: rem(24);
+
+			@include mobile-s {
+				padding-bottom: 0;
+			}
+		}
+	}
+
+	&__header {
+
+		&:not(:last-child) {
+			padding-bottom: fluid(50, 24);
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		column-gap: fluid(100, 24);
+
+		@include tablet {
+			padding-inline: 0;
+			margin-inline: rem(20);
+		}
+
+		@include underline(var(--color-grey), rem(1066));
+
+		&:after {
+			left: 50%;
+			translate: -50%;
+		}
+	}
+
+	&__button {
+		@include fluid-text(16, 15);
+
+		padding-top: rem(16);
+		background-color: transparent;
+		font-weight: 500;
+		color: var(--color-base);
+		padding-bottom: fluid(14, 5);
+
+		&:not(.is-active) {
+			@include underline(transparent, 0);
+
+			&:after {
+				left: 50%;
+			}
+		}
+
+		&.is-active {
+			font-weight: 600;
+			@include underline(var(--color-accent), 100%, fluid(4, 3));
+
+			@include mobile-s-above {
+				@include underline(var(--color-accent), 106%, fluid(4, 3));
+			}
+
+			&:after {
+				left: 0;
+				width: 100%;
+				border-radius: rem(20);
+				bottom: rem(1);
+				transition: var(--transition-duration);
+
+				@include mobile-s-above {
+					left: -3%;
+					width: 110%;
+				}
+			}
+		}
+	}
+
+	&__about {
+
+		&-image {
+			background-image: url('./images/producer-1.jpg');
+			background-size: cover;
+			background-position-x: center;
+			height: rem(267);
+			border-radius: rem(5);
+			box-shadow: var(--box-shadow);
+
+			@include mobile {
+				height: rem(295);
+			}
+		}
+
+		&-button-box {
+			display: flex;
+			padding-top: rem(30);
+			column-gap: rem(8);
+		}
+
+		&-title {
+			padding-bottom: rem(17);
+		}
+	}
+}
